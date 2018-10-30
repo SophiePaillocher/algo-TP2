@@ -13,7 +13,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class TrigramDictionaryTest {
 
     @Test
-    void testTrigram() {
+    public void testTrigram() {
         ArrayList<String> trigrams = new ArrayList<String>();
         trigrams.add("alg");
         trigrams.add("lgo");
@@ -21,16 +21,15 @@ public class TrigramDictionaryTest {
         trigrams.add("ori");
         trigrams.add("rit");
         trigrams.add("ith");
-        trigrams.add("ith");
         trigrams.add("thm");
-        trigrams.add("hme");        
+        trigrams.add("hme");
         assertThat(trigram("algorithme"), equalTo(trigrams));
     }
 
     @Test
-    void testDictionary() {
+    public void testDictionary() {
     }
 
     @Test
-    void testProximityWords(){}
+    public void testProximityWords(){}
 }

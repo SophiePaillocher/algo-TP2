@@ -1,14 +1,6 @@
 package com.company;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * But : Obtenir la liste des mots bien orthographiés ayant le plus de trigrammes communs avec un mot mal orthographié donné
@@ -16,18 +8,18 @@ import java.util.Map;
 
 public class TrigramDictionary {
 
-    Map<String, ArrayList<String>> trigrams;
+    Map<String, ArrayList<String>> trigramsDictionary;      // le dictionnaire de trigrammes
 
     // constructeur à partir d'un dictionnaire de trigrammes
 
-    public TrigramDictionary(Map<String, ArrayList<String>> trigrams) {
-        this.trigrams = trigrams;
+    public TrigramDictionary(Map<String, ArrayList<String>> trigramsDictionary) {
+        this.trigramsDictionary = trigramsDictionary;
     }
 
     //constructeur initialisant un dictionnaire vide
 
     public TrigramDictionary(){
-        this.trigrams = new HashMap<String, ArrayList<String>>();
+        this.trigramsDictionary = new HashMap<String, ArrayList<String>>();
     }
 
     /**
@@ -38,7 +30,11 @@ public class TrigramDictionary {
 
     static public List<String> trigram (String word)
     {
-        return null;
+        List<String> list = new ArrayList<>();
+        for (int i=0; i<word.length()-2; i++){
+            list.add(word.substring(i, i + 3));
+        }
+        return list;
     }
 
     /**
