@@ -44,8 +44,18 @@ public class TrigramDictionary {
 
     public void dictionary (List<String> words)
     {
-
+        for (String word : words)
+        {
+            List<String> trigrams = trigram(word);
+            for (String trigram : trigrams) {
+                ArrayList<String> entry = new ArrayList<String>();
+                if (trigramsDictionary.containsKey(trigram)) entry = trigramsDictionary.get(trigram);
+                entry.add(word);
+                trigramsDictionary.putIfAbsent(trigram, entry);
+            }
+        }
     }
+
 
     /**
      * Retourner la liste des mots du dictionnaire ayant le plus de trigrammes en commun avec word
