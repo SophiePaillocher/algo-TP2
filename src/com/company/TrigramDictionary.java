@@ -35,7 +35,7 @@ public class TrigramDictionary {
     {
         List<String> list = new ArrayList<>();
         for (int i=0; i<word.length()-2; i++){
-            list.add(word.substring(i, i + 3));
+            list.add(word.toLowerCase().substring(i, i + 3));
         }
         return list;
     }
