@@ -8,20 +8,23 @@ import java.util.*;
 
 public class TrigramDictionary {
 
-    Map<String, ArrayList<String>> trigramsDictionary;      // le dictionnaire de trigrammes
+    Map<String, ArrayList<String>> trigramDictionary;      // le dictionnaire de trigrammes
 
     // constructeur à partir d'un dictionnaire de trigrammes
 
-    public TrigramDictionary(Map<String, ArrayList<String>> trigramsDictionary) {
-        this.trigramsDictionary = trigramsDictionary;
+    public TrigramDictionary(Map<String, ArrayList<String>> trigramDictionary) {
+        this.trigramDictionary = trigramDictionary;
     }
 
     //constructeur initialisant un dictionnaire vide
 
     public TrigramDictionary(){
-        this.trigramsDictionary = new HashMap<String, ArrayList<String>>();
+        this.trigramDictionary = new HashMap<String, ArrayList<String>>();
     }
 
+    public Map<String, ArrayList<String>> get() {
+        return trigramDictionary;
+    }
     /**
      * Retourne la liste des trigrammes d'un mot
      * @param word le mot dont on cherche les trigrammes
@@ -44,14 +47,15 @@ public class TrigramDictionary {
 
     public void dictionary (List<String> words)
     {
+        trigramDictionary.clear();
         for (String word : words)
         {
             List<String> trigrams = trigram(word);
             for (String trigram : trigrams) {
                 ArrayList<String> entry = new ArrayList<String>();
-                if (trigramsDictionary.containsKey(trigram)) entry = trigramsDictionary.get(trigram);
+                if (trigramDictionary.containsKey(trigram)) entry = trigramDictionary.get(trigram);
                 entry.add(word);
-                trigramsDictionary.putIfAbsent(trigram, entry);
+                trigramDictionary.put(trigram, entry);
             }
         }
     }
@@ -63,6 +67,8 @@ public class TrigramDictionary {
      * @return
      */
     public List<String> proximityWords (String word){return null;}
+
+
 }
 
 

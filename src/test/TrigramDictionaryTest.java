@@ -43,14 +43,14 @@ public class TrigramDictionaryTest {
         ArrayList<String> entry3 = new ArrayList<String>();
         entry3.add("Achat");
         Map<String, ArrayList<String>> dictionary = new HashMap<String, ArrayList<String>>();
-        Map.entry("cha",entry1);
+        dictionary.put("cha",entry1);
         dictionary.put("hat",entry1);
         dictionary.put("jav", entry2);
         dictionary.put("ava",entry2);
         dictionary.put("ach",entry3);
-        TrigramDictionary trigramDictionary = new TrigramDictionary();
-        trigramDictionary.dictionary(words);
-        assertThat(trigramDictionary, equalTo(dictionary));
+        TrigramDictionary trigramDico = new TrigramDictionary();
+        trigramDico.dictionary(words);
+        assertThat(trigramDico.get(), equalTo(dictionary));
     }
 
     @Test
