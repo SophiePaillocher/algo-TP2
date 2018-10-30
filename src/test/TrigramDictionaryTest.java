@@ -1,10 +1,13 @@
 package test;
 
 
+import com.company.TrigramDictionary;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.company.TrigramDictionary.trigram;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -28,6 +31,26 @@ public class TrigramDictionaryTest {
 
     @Test
     public void testDictionary() {
+        List<String> words = new ArrayList<String>();
+        words.add("Chat");
+        words.add("Java");
+        words.add("Achat");
+        ArrayList<String> entry1 = new ArrayList<String>();
+        entry1.add("Chat");
+        entry1.add("Achat");
+        ArrayList<String> entry2 = new ArrayList<String>();
+        entry2.add("Java");
+        ArrayList<String> entry3 = new ArrayList<String>();
+        entry3.add("Achat");
+        Map<String, ArrayList<String>> dictionary = new HashMap<String, ArrayList<String>>();
+        Map.entry("cha",entry1);
+        dictionary.put("hat",entry1);
+        dictionary.put("jav", entry2);
+        dictionary.put("ava",entry2);
+        dictionary.put("ach",entry3);
+        TrigramDictionary trigramDictionary = new TrigramDictionary();
+        trigramDictionary.dictionary(words);
+        assertThat(trigramDictionary, equalTo(dictionary));
     }
 
     @Test
