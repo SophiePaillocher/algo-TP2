@@ -16,6 +16,14 @@ public class Main {
     static List<String> read (String fileName)
     {
         return null;
+        // Path dicoPath = Paths.get("dico.txt");
+        // List<String> lines = null;
+        //            try {
+        //                     lines = Files.readAllLines(dicoPath);
+        //                     } catch (IOException e1) {
+        //                     e1.printStackTrace();
+        //                     }
+
     }
 
 }

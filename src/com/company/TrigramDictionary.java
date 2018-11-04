@@ -8,7 +8,7 @@ import java.util.*;
 
 public class TrigramDictionary {
 
-    Map<String, ArrayList<String>> trigramDictionary;      // le dictionnaire de trigrammes
+    Map<String, ArrayList<String>> trigramDictionary;
 
     // constructeur à partir d'un dictionnaire de trigrammes
 
@@ -25,11 +25,14 @@ public class TrigramDictionary {
     public Map<String, ArrayList<String>> get() {
         return trigramDictionary;
     }
+
     /**
      * Retourne la liste des trigrammes d'un mot
      * @param word le mot dont on cherche les trigrammes
      * @return la liste de ses trigrammes
      */
+
+    // Si le mot fait moins de 3 lettres, retourner le mot tel quel ?
 
     static public List<String> trigram (String word)
     {
@@ -64,19 +67,20 @@ public class TrigramDictionary {
     /**
      * Retourner la liste des mots du dictionnaire ayant le plus de trigrammes en commun avec word
      * @param word
+     * @param numberMax le nombre maximal de mots à retourner
      * @return
      */
-    public List<String> proximityWords (String word){return null;}
+    public List<String> proximityWords (String word, int numberMax){
+      //  List<String> trigrams = trigram(word);
+       // for (trigram : trigrams){
+            // regarder les entrées associées à la clé trigram dans trigramDictionary
+            // faire la liste entry des mots en entrée ?
+            // compter les occurences de chaque mot de entry
+       // }
+        return null;}
 
 
 }
 
 
 
-   // Path dicoPath = Paths.get("dico.txt");
-   // List<String> lines = null;
-    //            try {
-   //                     lines = Files.readAllLines(dicoPath);
-   //                     } catch (IOException e1) {
-   //                     e1.printStackTrace();
-   //                     }
