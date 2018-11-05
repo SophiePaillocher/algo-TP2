@@ -11,37 +11,31 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LevenshteinTest {
-    String word1 ="arrive";
-    String word2 = "ariev";
-    Levenshtein distance = new Levenshtein(word1,word2);
+
 
     @Test
     public void distanceTest() {
+        String word1 ="arrive";
+        String word2 = "ariev";
+        Levenshtein distance = new Levenshtein(word1,word2);
         distance.distance();
         assertThat(distance.getLevenshtein(), equalTo(3));
     }
 
     @Test
     public void matrixTest() {
-        List<List<Integer>> matrix = new ArrayList<>();
-        List<Integer> line = new ArrayList<>();
-        line.add(0); line.add(1); line.add(2); line.add(3); line.add(4); line.add(5); line.add(6);
-        matrix.add(line);
-        line.clear();
-        line.add(1); line.add(0); line.add(1); line.add(2); line.add(3); line.add(4); line.add(5);
-        matrix.add(line);
-        line.clear();
-        line.add(2); line.add(1); line.add(0); line.add(1); line.add(2); line.add(3); line.add(4);
-        matrix.add(line);
-        line.clear();
-        line.add(3); line.add(2); line.add(1); line.add(1); line.add(1); line.add(2); line.add(3);
-        matrix.add(line);
-        line.clear();
-        line.add(4); line.add(3); line.add(2); line.add(2); line.add(2); line.add(2); line.add(2);
-        matrix.add(line);
-        line.clear();
-        line.add(5); line.add(4); line.add(3); line.add(3); line.add(3); line.add(2); line.add(3);
-        matrix.add(line);
-        assertThat(distance.matrix(), equalTo(matrix));
+        String word1 ="arrive";
+        String word2 = "ariev";
+        Levenshtein distance = new Levenshtein(word1,word2);
+
+        int m[][] = {
+                {0, 1, 2, 3, 4, 5, 6},
+                {1, 0, 1, 2, 3, 4, 5},
+                {2, 1, 0, 1, 2, 3, 4},
+                {3, 2, 1, 1, 1, 2, 3},
+                {4, 3, 2, 2, 2, 2, 2},
+                {5, 4, 3, 3, 3, 2, 3}
+        };
+        assertThat(distance.matrix(), equalTo(m));
     }
 }

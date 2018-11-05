@@ -6,14 +6,14 @@ import java.util.List;
 import static java.lang.Math.min;
 
 public class Levenshtein {
-    int Levenshtein;
+    int levenshtein;
     String word1;
     String word2;
 
     public Levenshtein(String word1, String word2) {
-        Levenshtein = 0;
-        word1 = word1;
-        word2 = word2;
+        levenshtein = 0;
+        this.word1 = word1;
+        this.word2 = word2;
     }
 
     /**
@@ -21,7 +21,7 @@ public class Levenshtein {
      * @return la distance de Levenshtein
      */
     public int getLevenshtein() {
-        return Levenshtein;
+        return levenshtein;
     }
 
 
@@ -29,25 +29,33 @@ public class Levenshtein {
      * Crée le tableau des distances des préfixes
      * @return le tableau des distances
      */
-    public List<List<Integer>> matrix (){
-        List<List<Integer>> matrix = new ArrayList<>(word2.length());
-        List<Integer> line = new ArrayList<>(word1.length());
-        for (int indiceColonne = 0; indiceColonne<=word1.length();indiceColonne++) line.add(indiceColonne);
-        matrix.add(line);
-        for (int indiceLigne=1; indiceLigne<= word2.length(); indiceLigne++)
+    public int[][] matrix (){
+        int matrix[][] = new int[word2.length()+1][word1.length()+1];
+        for (int j = 0; j<matrix[0].length;j++)
+            matrix[0][j]=j;
+        for (int i = 0; i<matrix.length;i++)
+            matrix[i][0]= i;
+        for (int i=1; i< matrix.length; i++)
         {
-            line.clear();
-            line.add(indiceLigne);
-            for (int indiceColonne = 1; indiceColonne <= word1.length(); indiceColonne++)
+            for (int j = 1; j < matrix[0].length; j++)
             {
-                int up = matrix.get(indiceLigne - 1).get(indiceColonne);
-                int left = matrix.get(indiceLigne).get(indiceColonne - 1);
-                int diag = matrix.get(indiceLigne - 1).get(indiceColonne - 1);
-                // condition si dernières lettres différentes ou non
-                //si dernière lettre égale line.add(diag) sinon ...
-                line.add(min(min(up,left),diag)+1);
+                int up = matrix[i - 1][j];
+                int left = matrix[i][j - 1];
+                int diag = matrix[i - 1][j - 1];
+                if (word2.charAt(i-1)==word1.charAt(j-1))
+                    matrix[i][j]= diag;
+                else
+                    matrix[i][j]=min(min(up,left),diag)+1;
             }
-            matrix.add(line);
+        }
+
+        for (int i=0; i< matrix.length; i++)
+        {
+            for (int j=0; j < matrix[0].length; j++)
+            {
+                System.out.print(matrix[i][j]+"  ");
+            }
+            System.out.println();
         }
         return matrix;
     }
