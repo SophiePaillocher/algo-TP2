@@ -68,4 +68,14 @@ public class Levenshtein {
         int[][] m = matrix();
         levenshtein = m[m.length-1][m[0].length-1];
     }
+
+    public ArrayList<String> proximityLevenshtein (ArrayList<String>list){
+        for (String word : list)
+        {
+            word2=word;
+            distance();
+        }
+        }
+        return null;
+    }
 }

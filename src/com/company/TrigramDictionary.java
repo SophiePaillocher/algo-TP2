@@ -55,8 +55,10 @@ public class TrigramDictionary {
         {
             List<String> trigrams = trigram(word);
             for (String trigram : trigrams) {
-                ArrayList<String> entry = new ArrayList<String>();
-                if (trigramDictionary.containsKey(trigram)) entry = trigramDictionary.get(trigram);
+                ArrayList<String> entry;
+                if (trigramDictionary.containsKey(trigram))
+                    entry = trigramDictionary.get(trigram);
+                else entry = new ArrayList<>();
                 entry.add(word);
                 trigramDictionary.put(trigram, entry);
             }
