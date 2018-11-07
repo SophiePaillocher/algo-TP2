@@ -48,7 +48,7 @@ public class Levenshtein {
                     matrix[i][j]=min(min(up,left),diag)+1;
             }
         }
-
+/**
         for (int i=0; i< matrix.length; i++)
         {
             for (int j=0; j < matrix[0].length; j++)
@@ -57,6 +57,7 @@ public class Levenshtein {
             }
             System.out.println();
         }
+ */
         return matrix;
     }
 
@@ -64,6 +65,7 @@ public class Levenshtein {
      * Donne la distance d'édition en faisant appelle à la méthode matrix
      */
     public void distance(){
-
+        int[][] m = matrix();
+        levenshtein = m[m.length-1][m[0].length-1];
     }
 }
