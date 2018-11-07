@@ -6,7 +6,7 @@ import java.util.*;
  * But : Obtenir la liste des mots bien orthographiés ayant le plus de trigrammes communs avec un mot mal orthographié donné
  */
 
-public class TrigramDictionary implements{
+public class TrigramDictionary {
 
     Map<String, ArrayList<String>> trigramDictionary;
 
@@ -74,11 +74,14 @@ public class TrigramDictionary implements{
      */
     public List<String> proximityTrigrams (String word, int numberMax){
 
-        List<WordDistance> similarWords = new ArrayList<>();
+        List<WordDistance> wordDistances = new ArrayList<>();
 
         for (String trigram : trigram(word)){
             for (String similarWord : trigramDictionary.get(trigram)) {
-
+                for (WordDistance wordDistance : wordDistances){
+                    if (wordDistance.getWord() == similarWord)
+                        wordDistance.setDistance(wordDistance.getDistance()+1);
+                }
             }
         }
 
