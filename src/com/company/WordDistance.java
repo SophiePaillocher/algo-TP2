@@ -10,4 +10,8 @@ public class WordDistance implements Comparable<WordDistance> {
     public int compareTo(WordDistance wordDistance) {
         return Integer.compare(distance, wordDistance.distance);
     }
+
+    public String getWord(){
+        return word;
+    }
 }
