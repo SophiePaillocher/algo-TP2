@@ -78,10 +78,18 @@ public class TrigramDictionary {
 
         for (String trigram : trigram(word)){
             for (String similarWord : trigramDictionary.get(trigram)) {
-                for (WordDistance wordDistance : wordDistances){
-                    if (wordDistance.getWord() == similarWord)
-                        wordDistance.setDistance(wordDistance.getDistance()+1);
-                }
+                WordDistance newElement = null;
+                for (WordDistance wordDistance : wordDistances)
+                    if (wordDistance.getWord() == similarWord) {
+                        newElement = wordDistance;
+
+                        break;
+                    }
+
+                if (newElement == null)
+                    newElement = new WordDistance(similarWord, 0);
+
+                newElement.setDistance(newElement.getDistance() + 1);
             }
         }
 
