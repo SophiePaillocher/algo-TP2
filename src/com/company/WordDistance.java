@@ -14,4 +14,12 @@ public class WordDistance implements Comparable<WordDistance> {
     public String getWord(){
         return word;
     }
+
+    public int getDistance(){
+        return distance;
+    }
+
+    public void setDistance(int distance){
+        this.distance = distance;
+    }
 }
