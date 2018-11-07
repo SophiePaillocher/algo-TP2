@@ -72,10 +72,11 @@ public class Levenshtein {
     public ArrayList<String> proximityLevenshtein (ArrayList<String>list){
         for (String word : list)
         {
+            WordDistance w = new WordDistance(word2, levenshtein)
             word2=word;
             distance();
         }
         }
-        return null;
+        return ;
     }
 }
