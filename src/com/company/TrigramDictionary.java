@@ -93,7 +93,7 @@ public class TrigramDictionary implements{
         }
 
         return toReturn;
-    }
+    }a
 
 
 }
