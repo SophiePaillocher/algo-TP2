@@ -5,10 +5,11 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String word1 ="arrive";
-        String word2 = "ariev";
-        Levenshtein distance = new Levenshtein(word1,word2);
-        distance.matrix();
+        String word1 ="dance";
+        String word2 = "apparence";
+        Levenshtein test = new Levenshtein(word1,word2);
+        test.distance();
+        System.out.println(test.getLevenshtein());
     }
 
     /**

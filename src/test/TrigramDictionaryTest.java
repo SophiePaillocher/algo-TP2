@@ -4,10 +4,7 @@ package test;
 import com.company.TrigramDictionary;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.company.TrigramDictionary.trigram;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -54,5 +51,11 @@ public class TrigramDictionaryTest {
     }
 
     @Test
-    public void testProximityWords(){}
+    public void testProximityTrigrams(){
+        List<String> words = Arrays.asList("Danemark", "Jordanie", "abondance", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence", "Lambda", "Alaska", "conception", "docteur", "table", "ordianteur", "cookie", "lit");
+        TrigramDictionary dico = new TrigramDictionary();
+        dico.dictionary(words);
+        List<String> expected = Arrays.asList("Danemark", "Jordanie", "abondance", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence");
+        assertThat(dico.proximityTrigrams("danse", 10), equalTo(expected));
+    }
 }

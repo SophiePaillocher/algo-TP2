@@ -72,15 +72,16 @@ public class TrigramDictionary {
      * @param numberMax le nombre maximal de mots à retourner
      * @return
      */
-    public List<String> proximityTrigrams (String word, int numberMax){
 
+    public List<String> proximityTrigrams (String word, int numberMax){
+/**
         List<WordDistance> wordDistances = new ArrayList<>();
 
         for (String trigram : trigram(word)){
             for (String similarWord : trigramDictionary.get(trigram)) {
                 for (WordDistance wordDistance : wordDistances){
                     if (wordDistance.getWord() == similarWord)
-                        wordDistance.setDistance(wordDistance.getDistance()+1);
+                        wordDistance.setDistance(wordDistance.getDistance()+1); //la distance correspond ici au nombre de trigrammes communs
                 }
             }
         }
@@ -94,8 +95,8 @@ public class TrigramDictionary {
             }
 
         }
-
-        return toReturn;
+*/
+        return null;
     }
 
 

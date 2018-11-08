@@ -1,9 +1,11 @@
 package test;
 
 import com.company.Levenshtein;
+import com.company.TrigramDictionary;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -37,5 +39,10 @@ class LevenshteinTest {
                 {5, 4, 3, 3, 3, 2, 3}
         };
         assertThat(distance.matrix(), equalTo(m));
+    }
+
+    @Test
+    public void proximityTest(){
+
     }
 }

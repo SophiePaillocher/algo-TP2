@@ -69,14 +69,18 @@ public class Levenshtein {
         levenshtein = m[m.length-1][m[0].length-1];
     }
 
-    public ArrayList<String> proximityLevenshtein (ArrayList<String>list){
+    /**
+     * Détermine les cinq mots les plus proches par rapport à la distance d'édition parmis une liste de mots
+     * @param list les mots candidats
+     * @return la liste des cinq mots les plus proches
+     */
+    public ArrayList<String> proximityLevenshtein (ArrayList<String> list){
         for (String word : list)
         {
-            WordDistance w = new WordDistance(word2, levenshtein)
+            WordDistance w = new WordDistance(levenshtein, word2);
             word2=word;
             distance();
         }
-        }
-        return ;
+        return null ;
     }
 }
