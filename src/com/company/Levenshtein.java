@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Math.min;
@@ -70,17 +71,39 @@ public class Levenshtein {
     }
 
     /**
-     * Détermine les cinq mots les plus proches par rapport à la distance d'édition parmis une liste de mots
+     * Calcule la distance de chaque mot d'une liste par rapport à word1
+     * @param list la liste des mots dont on cherche la distance par rapport à word1
+     * @return la liste des mots associés à leur distance par rapport à word1
+     */
+    public List<WordDistance> listDistances(List<String> list){
+        List<WordDistance> distances = new ArrayList<WordDistance>();
+        for (String word : list)
+        {
+            word2=word;
+            distance();
+            WordDistance w = new WordDistance(levenshtein, word2);
+            //System.out.println(w.getWord()+ " : "+ w.getDistance());
+            distances.add(w);
+        }
+        return distances;
+    }
+
+    /**
+     * Détermine les cinq mots les plus proches de word1 parmis une liste de mots
      * @param list les mots candidats
      * @return la liste des cinq mots les plus proches
      */
     public List<String> proximityLevenshtein (List<String> list){
-        for (String word : list)
+        List<WordDistance> distances = listDistances(list);
+        for (int i =0; i<distances.size()-1; i++)
         {
-            WordDistance w = new WordDistance(levenshtein, word2);
-            word2=word;
-            distance();
+            if (distances.get(i).compareTo(distances.get(i+1)) > 0)
+            {
+               WordDistance temp = distances.get(i);
+               distances.set(i,distances.get(i+1));
+               distances.set(i+1, temp);
+            }
         }
-        return null ;
+        return Arrays.asList(distances.get(0).getWord(), distances.get(1).getWord(), distances.get(2).getWord(), distances.get(3).getWord(), distances.get(4).getWord());
     }
 }
