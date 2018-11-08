@@ -73,7 +73,7 @@ public class TrigramDictionary {
      * @return
      */
     public List<String> proximityTrigrams (String word, int numberMax){
-
+/**
         List<WordDistance> wordDistances = new ArrayList<>();
 
         for (String trigram : trigram(word)){
@@ -102,8 +102,8 @@ public class TrigramDictionary {
             }
 
         }
-
-        return toReturn;
+*/
+        return null;
     }
 
 

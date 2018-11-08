@@ -43,6 +43,9 @@ class LevenshteinTest {
 
     @Test
     public void proximityTest(){
-
+        Levenshtein l = new Levenshtein("danse","");
+        List<String> list = Arrays.asList("Danemark", "Jordanie", "abondance", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence");
+        List<String> expected = Arrays.asList("danse", "France", "blanc", "abondance", "Jordanie");
+        assertThat(l.proximityLevenshtein(list), equalTo(expected));
     }
 }
