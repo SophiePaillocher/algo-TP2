@@ -9,7 +9,7 @@ public class Main {
         List<String> words = Arrays.asList("Danemark", "Jordanie", "abondance", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence", "Lambda", "Alaska", "conception", "docteur", "table", "ordianteur", "cookie", "lit");
         TrigramDictionary dico = new TrigramDictionary();
         dico.dictionary(words);
-        dico.numbersOfCommonTrigrams("dance");
+        System.out.println(dico.proximityTrigrams("dance",10));
     }
 
     /**

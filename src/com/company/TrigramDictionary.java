@@ -110,39 +110,22 @@ public class TrigramDictionary {
      * @return
      */
     public List<String> proximityTrigrams (String word, int numberMax){
-/**
-        List<WordDistance> wordDistances = new ArrayList<>();
-
-        for (String trigram : trigram(word)){
-            for (String similarWord : trigramDictionary.get(trigram)) {
-
-                WordDistance newElement = null;
-
-                for (WordDistance wordDistance : wordDistances)
-                    if (wordDistance.getWord() == similarWord) {
-                        newElement = wordDistance;
-
-                        break;
-                    }
-
-                if (newElement == null)
-                    newElement = new WordDistance(similarWord, 0);
-
-                newElement.setDistance(newElement.getDistance() + 1);
+        List<WordDistance> wordDistances = numbersOfCommonTrigrams(word);
+        List<String> toReturn = new ArrayList<>();
+        for (int i =0; i<wordDistances.size()-1; i++)
+        {
+            if (wordDistances.get(i).compareTo(wordDistances.get(i+1)) > 0)
+            {
+                WordDistance temp = wordDistances.get(i);
+                wordDistances.set(i,wordDistances.get(i+1));
+                wordDistances.set(i+1, temp);
             }
         }
-
-        List<String> toReturn = new ArrayList<String>();
-
-        int wordNumber = 0;
-        for(int i = entry.getMaxValue(); i > 0; i-- ) {
-            for (String word : entry) {
-                if (entry.get(word) ==
-            }
-
+        for (int i=0; i<numberMax & i<wordDistances.size(); i++)
+        {
+            toReturn.add(wordDistances.get(i).getWord());
         }
-*/
-        return null;
+        return toReturn;
     }
 
 

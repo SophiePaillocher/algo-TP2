@@ -55,7 +55,7 @@ public class TrigramDictionaryTest {
         List<String> words = Arrays.asList("Danemark", "Jordanie", "abondance", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence", "Lambda", "Alaska", "conception", "docteur", "table", "ordianteur", "cookie", "lit");
         TrigramDictionary dico = new TrigramDictionary();
         dico.dictionary(words);
-        List<String> expected = Arrays.asList("Danemark", "Jordanie", "abondance", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence");
-        assertThat(dico.proximityTrigrams("danse", 10), equalTo(expected));
+        List<String> expected = Arrays.asList("Danemark", "Jordanie", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence", "conception");
+        assertThat(dico.proximityTrigrams("dance", 10), equalTo(expected));
     }
 }
