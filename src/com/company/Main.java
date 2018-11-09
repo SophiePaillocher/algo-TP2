@@ -1,15 +1,15 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        String word1 ="dance";
-        String word2 = "abondance" ;
-        Levenshtein test = new Levenshtein(word1,word2);
-        test.distance();
-        System.out.println(test.getLevenshtein());
+        List<String> words = Arrays.asList("Danemark", "Jordanie", "abondance", "danse", "blanc", "France", "Lancelot", "accoutumance", "incendie", "apparence", "Lambda", "Alaska", "conception", "docteur", "table", "ordianteur", "cookie", "lit");
+        TrigramDictionary dico = new TrigramDictionary();
+        dico.dictionary(words);
+        dico.numbersOfCommonTrigrams("dance");
     }
 
     /**

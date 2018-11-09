@@ -65,6 +65,43 @@ public class TrigramDictionary {
         }
     }
 
+    /**
+     * Retourne la liste des mots du dictionnaire et leur nombre de trigrammes en commun avec word
+     * @param word
+     * @return
+     */
+    public List<WordDistance> numbersOfCommonTrigrams (String word)
+    {
+        List<WordDistance> wordDistances = new ArrayList<>();
+
+        for (String trigram : trigram(word))
+        {
+            for (String similarWord : trigramDictionary.get(trigram))
+            {
+                WordDistance newElement = null;
+                for (WordDistance wordDistance : wordDistances)
+                    if (wordDistance.getWord() == similarWord)
+                    {
+                        newElement = wordDistance;
+                        wordDistances.remove(wordDistance);
+                        break;
+                    }
+
+                if (newElement == null)
+                    newElement = new WordDistance(0,similarWord);
+
+                newElement.setDistance(newElement.getDistance() + 1);
+                wordDistances.add(newElement);
+            }
+        }
+/**
+        for(WordDistance wordDistance : wordDistances)
+        {
+            System.out.println(wordDistance.getWord() + " : " + wordDistance.getDistance());
+        }
+*/
+        return wordDistances;
+    }
 
     /**
      * Retourner la liste des mots du dictionnaire ayant le plus de trigrammes en commun avec word
@@ -78,7 +115,9 @@ public class TrigramDictionary {
 
         for (String trigram : trigram(word)){
             for (String similarWord : trigramDictionary.get(trigram)) {
+
                 WordDistance newElement = null;
+
                 for (WordDistance wordDistance : wordDistances)
                     if (wordDistance.getWord() == similarWord) {
                         newElement = wordDistance;
